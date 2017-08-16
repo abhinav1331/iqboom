@@ -565,3 +565,46 @@ require get_parent_theme_file_path( '/inc/customizer.php' );
  * SVG icons functions and filters.
  */
 require get_parent_theme_file_path( '/inc/icon-functions.php' );
+
+
+
+
+
+/*--------------Pins---------------*/
+function codex_int_pins_ssection() {
+  $labels = array(
+    'name' => 'Pins',
+    'singular_name' => 'Pins',
+    'add_new' => 'Add Pins',
+    'add_new_item' => 'Add New Pins',
+    'edit_item' => 'Edit Pins',
+    'new_item' => 'New Pins',
+    'all_items' => 'All Pins',
+    'view_item' => 'View Pins',
+    'search_items' => 'Search Pins',
+    'not_found' =>  'No Pins found',
+    'not_found_in_trash' => 'No Pins found in Trash', 
+    'parent_item_colon' => '',
+    'menu_name' => 'Pins'
+  );
+
+  $args = array(
+    'labels' => $labels,
+    'public' => true,
+    'publicly_queryable' => true,
+    'show_ui' => true, 
+    'show_in_menu' => true, 
+    'query_var' => true,
+    'rewrite' => array( 'pins' => 'about' ), 
+    'capability_type' => 'post',
+    'has_archive' => false, 
+    'hierarchical' => false,
+    'menu_position' => null,
+    'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' )
+  ); 
+
+  register_post_type( 'pins', $args ); 
+}  
+
+    add_action( 'init', 'codex_int_pins_ssection' );
+/*--------------/Pins---------------*/
